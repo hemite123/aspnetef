@@ -1,0 +1,50 @@
+﻿@{
+    @model Layar
+}
+@{
+    <div class="card card-4">
+                <div class="card-body">
+                       <h2 class="title">@ViewBag.Msg</h2>
+                        <h2 class="title">Tambah Layar</h2>
+                        @using (Html.BeginForm("ProcessAddLayar", "Account", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Nama Layar</label>
+                                    @Html.TextBoxFor(m => m.namalayar,null,new {@class="input--style-4"})
+                                </div>
+                            </div>
+                             <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Default Layar</label>
+                                    @Html.CheckBoxFor(m => m.boolisview,new {@class="input--style-4"})
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Path Code</label>
+                                    @Html.TextBoxFor(m => m.pathcode,null,new {@class="input--style-4"})
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Role Yang Dibutuhkan</label>
+                                    <select asp-for="roleNeed">
+                                @foreach(RoleData rd in ViewBag.RD)
+                                {
+                                    <option value ="@rd.roleid">@rd.namaRole</option>
+                                }
+                            </select>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                        </div>
+                        }
+                </div>
+            </div>
+}

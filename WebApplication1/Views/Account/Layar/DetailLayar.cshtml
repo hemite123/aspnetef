@@ -1,0 +1,33 @@
+﻿@{
+    @model Layar
+}
+@{
+    <div class="card card-4">
+                <div class="card-body">
+                        <h2 class="title">Detail Layar</h2> <br>@Html.ActionLink("Tambah Layar","AddLayar","Account") 
+                        <table>
+                       <thead>
+                        <tr>
+                        <th>ID</th>
+                         <th>Nama</th>
+                          <th>Default Layar</th>
+                           <th>Code Path</th>
+                           <th>Action</th>
+                        </tr>
+                       </thead>
+                       <tbody>
+                    @foreach(Layar lyr in ViewBag.layar)
+                    {
+                        <tr>
+                            <td>@lyr.layarid</td>
+                            <td>@lyr.namalayar</td>
+                            <td>@Html.Raw((lyr.isDef == 1) ? "True" : "False" )</td>
+                            <td>@lyr.pathcode</td>
+                            <td>@Html.ActionLink("Edit Layar","EditLayar","Account",new {id = lyr.layarid}) /  @Html.ActionLink("Delete Layar","DeleteLayar","Account",new {id = lyr.layarid})</td>
+                        </tr>
+                    }
+                </tbody>
+                        </table>
+                </div>
+            </div>
+}

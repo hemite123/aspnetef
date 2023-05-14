@@ -1,0 +1,29 @@
+﻿@{
+    @model Layar
+}
+@{
+    <div class="card card-4">
+                <div class="card-body">
+                        <h2 class="title">Detail Role</h2> <br>@Html.ActionLink("Tambah Role","AddRole","Role") 
+                        <table>
+                       <thead>
+                        <tr>
+                        <th>ID</th>
+                         <th>Nama Role</th>
+                           <th>Action</th>
+                        </tr>
+                       </thead>
+                       <tbody>
+                    @foreach(RoleData lyr in ViewBag.RD)
+                    {
+                        <tr>
+                            <td>@lyr.roleid</td>
+                            <td>@lyr.namaRole</td>
+                            <td>@Html.ActionLink("Edit Role","EditRole","Role",new {id = lyr.roleid}) /  @Html.ActionLink("Delete Role","ProcessDeleteRole","Role",new {id = lyr.roleid})</td>
+                        </tr>
+                    }
+                </tbody>
+                        </table>
+                </div>
+            </div>
+}

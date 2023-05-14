@@ -1,0 +1,33 @@
+﻿@{
+    @model RoleData
+}
+@{
+    <div class="card card-4">
+                <div class="card-body">
+                       <h2 class="title">@ViewBag.Msg</h2>
+                        <h2 class="title">Edit Role</h2>
+                        @using (Html.BeginForm("ProcessEditRole", "Role", new {id =@ViewBag.DR.roleid} ,FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Nama Role</label>
+                                    @Html.TextBoxFor(m => m.namaRole,null,new {@class="input--style-4"})
+                                </div>
+                            </div>
+                             <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Default Role</label>
+                                    @Html.CheckBoxFor(m => m.isDefe,new {@class="input--style-4"})
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                        </div>
+                        }
+                </div>
+            </div>
+}
