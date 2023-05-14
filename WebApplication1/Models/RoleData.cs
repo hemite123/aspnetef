@@ -11,7 +11,7 @@ namespace WebApplication1.Models
         public int roleid { get; set; }
         public string namaRole { get;set; }
         [NotMapped]
-        public bool isDefe { get;set }
+        public bool isDefe { get; set; }
         public int isDef { get;set;}
     }
 }

@@ -41,7 +41,7 @@ namespace WebApplication1.Controllers
                     }
                     dbC.Users.Add(userdata);
                     dbC.SaveChanges();
-                    return RedirectToAction("Login");
+                    return RedirectToAction("Login","Account");
                 }
 
 
@@ -75,7 +75,7 @@ namespace WebApplication1.Controllers
                     }
                 }
             }
-            return RedirectToAction("Login");
+            return RedirectToAction("Login","Account");
         }
 
         public IActionResult HomePage()
